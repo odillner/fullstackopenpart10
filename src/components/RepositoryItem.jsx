@@ -3,6 +3,7 @@ import {StyleSheet, View, Image} from "react-native";
 
 import Text from "./Text";
 import theme from "../theme";
+import { preventAutoHide } from "expo/build/launch/SplashScreen";
 
 const styles = StyleSheet.create({
     container: {
@@ -15,9 +16,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
     headerText: {
-        paddingLeft: 20,
+        paddingLeft: 10,
         paddingBottom: 10,
-        paddingTop: 5,
     },
     avatar: {
         width: 50,
@@ -26,17 +26,17 @@ const styles = StyleSheet.create({
     },
     counters: {
         flexDirection: "row",
-        paddingLeft: 40,
+        paddingLeft: 10,
     },
     singleCounter: {
         paddingLeft: 30,
     },
     language: {
-        marginTop: 10,
+        marginTop: 5,
         borderRadius: 5,
         padding: 3,
         backgroundColor: theme.colors.primary,
-        width: "100%",
+        alignSelf: "baseline",
     }
 });
 
@@ -54,8 +54,8 @@ const ItemHeader = ({item}) => {
                 <Text color="textSecondary">
                     {item.description}
                 </Text>
+                <Language language={item.language}/>
             </View>
-            <Language language={item.language}/>
 
         </View>
     );
@@ -89,7 +89,7 @@ const Counters = ({item}) => {
 const Language = ({language}) => {
     return (
         <View style={styles.language}>
-            <Text>
+            <Text fontWeight="bold">
                 {language}
             </Text>
         </View>
