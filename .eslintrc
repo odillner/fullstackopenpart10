@@ -1,0 +1,37 @@
+{
+    "plugins": ["react"],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "react/prop-types": "off",
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": "error",
+        "no-trailing-spaces": "error",
+        "object-curly-spacing": [
+            "error", "never"
+        ],
+        "arrow-spacing": [
+            "error", {"before": true, "after": true}
+        ],
+        "no-console": 0
+    }
+  }
