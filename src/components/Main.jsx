@@ -2,6 +2,8 @@ import React from "react";
 import Constants from "expo-constants";
 import {StyleSheet, View} from "react-native";
 import RepositoryList from "./RepositoryList";
+import {Route, Switch, Redirect} from "react-router-native";
+
 import AppBar from "./AppBar";
 
 import theme from "../theme";
@@ -19,7 +21,12 @@ const Main = () => {
     return (
         <View style={styles.container}>
             <AppBar></AppBar>
-            <RepositoryList/>
+            <Switch>
+                <Route path="/" exact>
+                    <RepositoryList />
+                </Route>
+                <Redirect to="/" />
+            </Switch>
         </View>
     );
 };

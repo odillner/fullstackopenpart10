@@ -3,7 +3,6 @@ import {StyleSheet, View, Image} from "react-native";
 
 import Text from "./Text";
 import theme from "../theme";
-import { preventAutoHide } from "expo/build/launch/SplashScreen";
 
 const styles = StyleSheet.create({
     container: {
