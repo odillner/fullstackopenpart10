@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     },
     singleCounter: {
         paddingLeft: 30,
+        textAlign: 'center',
     },
     language: {
         marginTop: 5,
@@ -50,7 +51,7 @@ const ItemHeader = ({item}) => {
                 <Text fontWeight="bold">
                     {item.fullName}
                 </Text>
-                <Text color="textSecondary">
+                <Text color="secondary">
                     {item.description}
                 </Text>
                 <Language language={item.language}/>
@@ -62,12 +63,23 @@ const ItemHeader = ({item}) => {
 
 
 const SingleCounter = ({title, value}) => {
+    let newVal = value;
+
+    /* formats number into k format if necessary */
+    if (newVal >= 1000) {
+        const k = Math.floor(newVal/1000);
+        const rest = Math.round((newVal - k*1000)/100)/10;
+
+        newVal = k + rest;
+        newVal += "k";
+    }
+
     return (
         <View style={styles.singleCounter}>
             <Text fontWeight="bold">
-                {value}
+                {newVal}
             </Text>
-            <Text color="textSecondary">
+            <Text color="secondary">
                 {title}
             </Text>
         </View>
@@ -88,7 +100,7 @@ const Counters = ({item}) => {
 const Language = ({language}) => {
     return (
         <View style={styles.language}>
-            <Text fontWeight="bold">
+            <Text color="tertiary">
                 {language}
             </Text>
         </View>
